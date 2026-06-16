@@ -90,7 +90,9 @@ def load() -> dict[str, Any]:
 
 
 def save(cfg: dict[str, Any]) -> Path:
-    """Write ``config.json`` (0600) under a 0700 config dir. Returns the path."""
+    """Write ``config.json`` under the config dir. Perms are 0600/0700 on POSIX;
+    on Windows ``chmod`` is best-effort and the per-user profile dir isolates it.
+    Returns the path."""
     d = home()
     d.mkdir(mode=0o700, parents=True, exist_ok=True)
     try:

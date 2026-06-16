@@ -5,6 +5,7 @@ asserts a vendor's terms, and never hard-blocks."""
 from __future__ import annotations
 
 import json
+import os
 
 import pytest
 
@@ -57,8 +58,10 @@ def test_record_attestation_is_dated_and_recorded(home):
 
 def test_config_file_is_0600(home):
     settings.set_provider("openai")
-    mode = (home / "config.json").stat().st_mode & 0o777
-    assert mode == 0o600
+    cfg = home / "config.json"
+    assert cfg.exists()
+    if os.name == "posix":                    # 0600 is a POSIX guarantee; on Windows
+        assert (cfg.stat().st_mode & 0o777) == 0o600   # the per-user profile dir isolates it
 
 
 def test_corrupt_config_falls_back_to_defaults(home):
@@ -71,7 +74,6 @@ def test_env_loading_does_not_override_existing(home, monkeypatch):
     settings.write_env_key("OPENAI_API_KEY", "from-file")
     monkeypatch.setenv("OPENAI_API_KEY", "from-env")
     settings.load_env()
-    import os
     assert os.environ["OPENAI_API_KEY"] == "from-env"   # explicit export wins
 
 
@@ -79,7 +81,6 @@ def test_env_loading_populates_when_unset(home, monkeypatch):
     monkeypatch.delenv("GEMINI_API_KEY", raising=False)
     settings.write_env_key("GEMINI_API_KEY", "from-file")
     settings.load_env()
-    import os
     assert os.environ.get("GEMINI_API_KEY") == "from-file"
-    # the .env file is 0600
-    assert ((home / ".env").stat().st_mode & 0o777) == 0o600
+    if os.name == "posix":                    # 0600 is a POSIX guarantee; Windows
+        assert ((home / ".env").stat().st_mode & 0o777) == 0o600   # uses the profile dir
