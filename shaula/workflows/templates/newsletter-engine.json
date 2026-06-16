@@ -1,0 +1,47 @@
+{
+  "name": "newsletter-engine",
+  "description": "AI-drafted email newsletter content for a therapy practice: practitioner updates, psychoeducation digests, workshop announcements, community letters. Replaces beehiiv / MailerLite drafting. No PHI. This engine produces a clean, honesty-reviewed DRAFT; delivery is the clinician's own email tool (free tiers on beehiiv or MailerLite cap at 2,500 subscribers — the clinician manages their own list and stays within their plan limits). Human gate before any email is sent — the agent drafts, a person sends.",
+  "variables": ["edition", "project"],
+  "allow_phi": false,
+  "default_workspace_kind": "scratch",
+  "steps": [
+    {
+      "ref": "brief",
+      "title": "Newsletter brief: {edition} for {project}",
+      "assignee": "blog",
+      "priority": "medium",
+      "tags": ["newsletter", "content"],
+      "description": "Write a newsletter brief for the {edition} edition from {project}. Name the audience (who is on this list and why they signed up), the edition's theme or central topic, any real events or updates to announce (new group, workshop date, clinic hours change), and the tone. No invented social proof, no outcome promise. If the edition includes clinical psychoeducation, list only topics the clinician is licensed and willing to stand behind, and flag that every clinical claim must carry a disclaimer that this is general information, not individual treatment. End the brief with the call to action the edition should drive (reply, book a session, share with a colleague)."
+    },
+    {
+      "ref": "draft",
+      "title": "Draft newsletter: {edition} for {project}",
+      "assignee": "marketer",
+      "priority": "medium",
+      "dependencies": ["brief"],
+      "tags": ["newsletter", "content"],
+      "description": "Write the {edition} newsletter from {project} following the brief. Structure: a personal opening in the clinician's own voice (first person, warm, not a broadcast), the main topic or update, any event or announcement, and a close with the call to action. Plain language — not clinical jargon, not marketing copy. No outcome promise, no statistic without a citation from the brief. If the edition includes psychoeducation, end that section with the disclaimer: 'This is general information and not a substitute for individual mental health care. If you are in crisis, contact the 988 Lifeline.' Produce the draft as a formatted document using the office docx skill."
+    },
+    {
+      "ref": "review",
+      "title": "Honesty review: {edition} newsletter",
+      "assignee": "reviewer",
+      "priority": "high",
+      "dependencies": ["draft"],
+      "requires_review": true,
+      "tags": ["quality"],
+      "description": "Review the {edition} newsletter against the Shaula honesty rules. Flag any unsupported claim, any outcome promise, any missing citation for a statistic, and any psychoeducation section missing its disclaimer. Confirm the call to action is direct and does not pressure the reader. Confirm no reader's situation or condition is used as a punchline or a hook. Hold delivery until the newsletter is clean."
+    },
+    {
+      "ref": "send",
+      "title": "Human gate — clinician sends the newsletter: {edition}",
+      "assignee": "marketer",
+      "priority": "high",
+      "dependencies": ["review"],
+      "triage": true,
+      "requires_review": true,
+      "tags": ["newsletter", "human-gate"],
+      "description": "HUMAN GATE: the clinician reads the clean newsletter draft, makes any personal edits in their own voice, and sends it through their own email tool (beehiiv, MailerLite, Gmail, or similar). The agent does not access the email platform or send on the clinician's behalf. Note: free-tier newsletter platforms cap subscriber lists — the clinician manages their own plan and list size. Record the edition name, send date, and the rough audience size so the practice can track its real reach without inflated numbers."
+    }
+  ]
+}

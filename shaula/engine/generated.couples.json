@@ -1,0 +1,190 @@
+{
+  "_comment": "DETERMINISTIC, no-LLM generated content for the private-practice template. 26 blocks kept verbatim (fill.py substitutes {{tokens}} and strips AI-GENERATE markers); 11 resolved from practice data with real citations / honest generic floors. Honesty-linted. Consumed by engine/fill.py.",
+  "blocks": {
+    "meta_description": {
+      "file": "index.html",
+      "find": "<meta name=\"description\" content=\"Private psychotherapy with {{owner_name}}, {{credential}}. Specializing in {{specialties}}. {{location}} office and telehealth across {{service_areas}}.\" />",
+      "replace": "<meta name=\"description\" content=\"Private psychotherapy with {{owner_name}}, {{credential}}. Specializing in {{specialties}}. {{location}} office and telehealth across {{service_areas}}.\" />"
+    },
+    "hero_headline": {
+      "file": "app.js",
+      "find": "<h1 id=\"h1\">A different kind of <span class=\"accent\">therapeutic work.</span></h1>",
+      "replace": "<h1 id=\"h1\">A different kind of <span class=\"accent\">therapeutic work.</span></h1>"
+    },
+    "hero_sub": {
+      "file": "app.js",
+      "find": "<p class=\"hero-sub\">{{practice_model}} private psychotherapy with {{owner_name}}, {{credential}}. Evidence-based work for adults at a turning point.</p>",
+      "replace": "<p class=\"hero-sub\">{{practice_model}} private psychotherapy with {{owner_name}}, {{credential}}. Evidence-based work for adults at a turning point.</p>"
+    },
+    "method_intro_cards": {
+      "file": "app.js",
+      "find": "${[\n          ['1','Step one','Replace with the first move of {{method_name}}.'],\n          ['2','Step two','Replace with the second move of {{method_name}}.'],\n          ['3','Step three','Replace with the third move of {{method_name}}.'],\n          ['4','Step four','Replace with the fourth move of {{method_name}}.'],\n          ['5','Step five','Replace with the fifth move of {{method_name}}.'],\n          ['6','Step six','Replace with the sixth move of {{method_name}}.']\n        ].map((c,i)=>`",
+      "replace": "${[\n          [\"S\",\"Settle\",\"Steady the body before the mind\"],\n          [\"N\",\"Notice\",\"Name the pattern, not a verdict\"],\n          [\"U\",\"Understand\",\"Trace where it learned to protect you\"],\n          [\"P\",\"Practice\",\"Build a different response on purpose\"],\n          [\"I\",\"Integrate\",\"Carry it into real situations\"],\n          [\"S\",\"Sustain\",\"Make the change durable\"]\n        ].map((c,i)=>`"
+    },
+    "method_intro_heading": {
+      "file": "app.js",
+      "find": "<h2 class=\"display\">A simple framework for the hard moments.</h2>",
+      "replace": "<h2 class=\"display\">A simple framework for the hard moments.</h2>"
+    },
+    "method_intro_lede": {
+      "file": "app.js",
+      "find": "<p class=\"lede\">An evidence-informed framework {{owner_name}} uses with clients for the moment most therapy doesn't reach.</p>",
+      "replace": "<p class=\"lede\">An evidence-informed framework {{owner_name}} uses with clients for the moment most therapy doesn't reach.</p>"
+    },
+    "who_heading": {
+      "file": "app.js",
+      "find": "<h2 class=\"display\" style=\"margin-top:14px;\">People at a turning point who are ready to <em>move</em>.</h2>",
+      "replace": "<h2 class=\"display\" style=\"margin-top:14px;\">People at a turning point who are ready to <em>move</em>.</h2>"
+    },
+    "who_body": {
+      "file": "app.js",
+      "find": "<p class=\"lead muted\">Most clients arrive having already tried hard. They want a clinician who meets that with structure, evidence, and a steady hand.</p>",
+      "replace": "<p class=\"lead muted\">Most clients arrive having already tried hard. They want a clinician who meets that with structure, evidence, and a steady hand.</p>"
+    },
+    "populations_chips": {
+      "file": "app.js",
+      "find": "${['Specialty one','Specialty two','Specialty three','Specialty four','Specialty five','Specialty six'].map(p=>`<span class=\"chip\"><span class=\"dot\"></span>${p}</span>`).join('')}",
+      "replace": "${[\"Couples\",\"Partners\",\"Newlyweds\",\"Parents\"].map(p=>`<span class=\"chip\"><span class=\"dot\"></span>${p}</span>`).join('')}"
+    },
+    "pull_quote": {
+      "file": "app.js",
+      "find": "<blockquote>\"The work isn't about becoming someone new. It's about getting the obstacles out of the way of who you already are.\"</blockquote>",
+      "replace": "<blockquote>\"The work isn't about becoming someone new. It's about getting the obstacles out of the way of who you already are.\"</blockquote>"
+    },
+    "about_headline": {
+      "file": "app.js",
+      "find": "<h1 class=\"display\" style=\"margin-top:14px;font-size:clamp(40px,5.4vw,68px);\">{{owner_name}} is a {{credential_full}} who does structured, evidence-based work with people at a turning point.</h1>",
+      "replace": "<h1 class=\"display\" style=\"margin-top:14px;font-size:clamp(40px,5.4vw,68px);\">{{owner_name}} is a {{credential_full}} who does structured, evidence-based work with people at a turning point.</h1>"
+    },
+    "about_body": {
+      "file": "app.js",
+      "find": "<p class=\"lead\">{{owner_name}}, {{credential}}, has spent years in clinical settings where the work mattered too much to be vague.</p>\n          <p style=\"margin-top:20px;\">{{owner_name}} founded {{business_name}} and now sees adults privately for {{specialties}}. Licensed to serve {{service_areas}}, with telehealth and an in-person office in {{location}}.</p>\n          <p style=\"margin-top:20px;\">The approach is evidence-based and outcomes-tracked — {{modalities}} — but the soul of it is simpler: people who do the work deserve a clinician who will too.</p>",
+      "replace": "<p class=\"lead\">{{owner_name}}, {{credential}}, has spent years in clinical settings where the work mattered too much to be vague.</p>\n          <p style=\"margin-top:20px;\">{{owner_name}} founded {{business_name}} and now sees adults privately for {{specialties}}. Licensed to serve {{service_areas}}, with telehealth and an in-person office in {{location}}.</p>\n          <p style=\"margin-top:20px;\">The approach is evidence-based and outcomes-tracked — {{modalities}} — but the soul of it is simpler: people who do the work deserve a clinician who will too.</p>"
+    },
+    "about_note": {
+      "file": "app.js",
+      "find": "<p>\"I take this work seriously, and I expect the people I work with to do the same. If you're ready for that, I'm a good clinician to do it with.\"</p>",
+      "replace": "<p>\"I take this work seriously, and I expect the people I work with to do the same. If you're ready for that, I'm a good clinician to do it with.\"</p>"
+    },
+    "career_heading": {
+      "file": "app.js",
+      "find": "<h2 class=\"display\">A career arc that built this practice.</h2>",
+      "replace": "<h2 class=\"display\">A career arc that built this practice.</h2>"
+    },
+    "career_lede": {
+      "file": "app.js",
+      "find": "<p class=\"lede\" style=\"margin-top:14px;color:var(--ink-2);max-width:62ch;\">Each chapter taught a different piece of what this practice now is.</p>",
+      "replace": "<p class=\"lede\" style=\"margin-top:14px;color:var(--ink-2);max-width:62ch;\">Each chapter taught a different piece of what this practice now is.</p>"
+    },
+    "career_timeline": {
+      "file": "app.js",
+      "find": "${[\n          ['Year – Year','Organization','Role','One-sentence description of the work and a concrete accomplishment.'],\n          ['Year – Year','Organization','Role','One-sentence description of the work and a concrete accomplishment.'],\n          ['Year – Year','Organization','Role','One-sentence description of the work and a concrete accomplishment.'],\n          ['Founded – present','{{business_name}}','Founder · Private Practice','Private practice serving {{specialties}}. Licensed for {{service_areas}}.']\n        ].map(t=>`",
+      "replace": "${[\n          [\"2011 – 2015\",\"University Counseling Center\",\"Couples and Family Therapist\",\"Couples and Family Therapist work in university counseling center.\"],\n          [\"2015 – 2019\",\"Community Family Services Agency\",\"Clinical Supervisor\",\"Clinical Supervisor work in community family services agency.\"],\n          [\"2019 – present\",\"Riverbend Couples Therapy\",\"Founder · Private Practice\",\"Private practice serving couples, communication, intimacy. Licensed for Ohio.\"]\n        ].map(t=>`"
+    },
+    "approach_headline": {
+      "file": "app.js",
+      "find": "<h1 class=\"display\" style=\"margin-top:14px;font-size:clamp(40px,5.4vw,72px);max-width:18ch;\">Evidence-based, outcomes-tracked, and quietly demanding.</h1>",
+      "replace": "<h1 class=\"display\" style=\"margin-top:14px;font-size:clamp(40px,5.4vw,72px);max-width:18ch;\">Evidence-based, outcomes-tracked, and quietly demanding.</h1>"
+    },
+    "approach_intro": {
+      "file": "app.js",
+      "find": "<p class=\"lead muted\" style=\"margin-top:24px;\">Every modality below is supported by peer-reviewed research and used in combination — not as a brand.</p>",
+      "replace": "<p class=\"lead muted\" style=\"margin-top:24px;\">Every modality below is supported by peer-reviewed research and used in combination — not as a brand.</p>"
+    },
+    "modalities": {
+      "file": "app.js",
+      "find": "${[\n          ['M1','Modality One','One to two plain-language sentences on what this modality does and when it helps.','Author — Source'],\n          ['M2','Modality Two','One to two plain-language sentences on what this modality does and when it helps.','Author — Source'],\n          ['M3','Modality Three','One to two plain-language sentences on what this modality does and when it helps.','Author — Source'],\n          ['M4','Modality Four','One to two plain-language sentences on what this modality does and when it helps.','Author — Source']\n        ].map(m=>`",
+      "replace": "${[\n          [\"EFT\",\"Emotionally Focused Therapy\",\"Treats the bond itself as the client, helping partners surface the softer feelings under conflict and reach for each other instead of bracing. A leading evidence-based couples approach.\",\"Greenberg &amp; Johnson — Emotionally Focused Therapy for Couples (1988)\"],\n          [\"Gottman\",\"Gottman Method Couples Therapy\",\"Uses decades of relationship research to map what helps couples and what erodes them, then rebuilds friendship, conflict repair, and shared meaning. Assessment-driven and practical.\",\"Gottman &amp; Silver — The Seven Principles for Making Marriage Work (1999)\"]\n        ].map(m=>`"
+    },
+    "session_shape": {
+      "file": "app.js",
+      "find": "<p class=\"lead muted\">Sessions are {{session_length}}. The first few are assessment-heavy — history, goals, and a baseline. From there, sessions are structured but not rigid: a check-in, the agreed clinical work, a between-session practice, and a brief close.</p>\n          <p style=\"margin-top:18px;\">Trauma-informed throughout. Pace is set by the client's nervous system, not the calendar.</p>",
+      "replace": "<p class=\"lead muted\">Sessions are {{session_length}}. The first few are assessment-heavy — history, goals, and a baseline. From there, sessions are structured but not rigid: a check-in, the agreed clinical work, a between-session practice, and a brief close.</p>\n          <p style=\"margin-top:18px;\">Trauma-informed throughout. Pace is set by the client's nervous system, not the calendar.</p>"
+    },
+    "method_headline": {
+      "file": "app.js",
+      "find": "<h1 class=\"display\" style=\"margin-top:14px;font-size:clamp(40px,5.4vw,72px);max-width:16ch;\">A framework for the hard moments.</h1>",
+      "replace": "<h1 class=\"display\" style=\"margin-top:14px;font-size:clamp(40px,5.4vw,72px);max-width:16ch;\">A framework for the hard moments.</h1>"
+    },
+    "method_intro": {
+      "file": "app.js",
+      "find": "<p class=\"lead muted\" style=\"margin-top:24px;max-width:62ch;\">The framework {{owner_name}} uses with clients to interrupt automatic patterns and choose a response that fits who they actually are. Each step pairs the science with one practice you can run this week.</p>",
+      "replace": "<p class=\"lead muted\" style=\"margin-top:24px;max-width:62ch;\">The framework {{owner_name}} uses with clients to interrupt automatic patterns and choose a response that fits who they actually are. Each step pairs the science with one practice you can run this week.</p>"
+    },
+    "method_steps": {
+      "file": "app.js",
+      "find": "${[\n        ['1','Step one','01','One-line subtitle for this step',\n          'Replace with a 2-4 sentence, plain-language explanation of what happens in this step and the science behind it.',\n          'Replace with one concrete practice the reader can try this week.'],\n        ['2','Step two','02','One-line subtitle for this step',\n          'Replace with a 2-4 sentence, plain-language explanation of what happens in this step and the science behind it.',\n          'Replace with one concrete practice the reader can try this week.'],\n        ['3','Step three','03','One-line subtitle for this step',\n          'Replace with a 2-4 sentence, plain-language explanation of what happens in this step and the science behind it.',\n          'Replace with one concrete practice the reader can try this week.'],\n        ['4','Step four','04','One-line subtitle for this step',\n          'Replace with a 2-4 sentence, plain-language explanation of what happens in this step and the science behind it.',\n          'Replace with one concrete practice the reader can try this week.']\n      ].map(m=>`",
+      "replace": "${[\n        [\"S\",\"Settle\",\"01\",\"Steady the body before the mind\",\"When something hard hits, the body shifts into a stress response and the thinking brain goes partly offline. The first move is to help your nervous system register that it is safe enough to work, using the breath and the senses. You cannot reason your way out of a state you have not first calmed.\",\"Try slow exhales — in for four, out for six — for two minutes, and name five things you can see and four you can touch.\"],\n        [\"N\",\"Notice\",\"02\",\"Name the pattern, not a verdict\",\"Reactions that run on autopilot feel like plain fact. Noticing means catching the pattern as it happens and naming it without turning it into a character flaw. Putting words to an internal state reliably takes some of the heat out of it.\",\"When you feel the surge, finish this on paper: \\\"Here is the part of me that is trying to help by ____.\\\"\"],\n        [\"U\",\"Understand\",\"03\",\"Trace where it learned to protect you\",\"Patterns are rarely random; most were useful somewhere, often long ago. Understanding connects a present reaction to the history that trained it. Context turns \\\"what is wrong with me\\\" into \\\"this makes sense, and it can change.\\\"\",\"Ask of the reaction: when did this first become a useful thing to do, and is that still true now?\"],\n        [\"P\",\"Practice\",\"04\",\"Build a different response on purpose\",\"Insight alone rarely changes a habit. Once the body is steadier and the pattern is clear, we rehearse a specific alternative — a small, concrete move that fits what you actually value rather than the old reflex.\",\"Name one small action this week that the calmer, wiser version of you would take, and schedule it.\"],\n        [\"I\",\"Integrate\",\"05\",\"Carry it into real situations\",\"A new response is fragile until it has been tried under real conditions. Integrating means using the skill on ordinary days — not just in session — so it is available on the hard ones, the way any skill consolidates through use.\",\"Pick one routine situation this week and run the new response there, while the stakes are low.\"],\n        [\"S\",\"Sustain\",\"06\",\"Make the change durable\",\"Lasting change is less about intensity and more about repetition and review. Sustaining means noticing what is holding, adjusting what is not, and keeping the practice going long enough that it becomes the default.\",\"At week's end, note one moment the new response showed up on its own — that is the change taking root.\"]\n      ].map(m=>`"
+    },
+    "method_why": {
+      "file": "app.js",
+      "find": "<p>\"The name is a reminder of the one principle that holds the whole thing together — and the part most people skip.\"</p>",
+      "replace": "<p>\"The name is a reminder of the one principle that holds the whole thing together — and the part most people skip.\"</p>"
+    },
+    "journey_headline": {
+      "file": "app.js",
+      "find": "<h1 class=\"display\" style=\"margin-top:14px;font-size:clamp(40px,5.4vw,72px);max-width:18ch;\">A structured journey for people ready to do real work.</h1>",
+      "replace": "<h1 class=\"display\" style=\"margin-top:14px;font-size:clamp(40px,5.4vw,72px);max-width:18ch;\">A structured journey for people ready to do real work.</h1>"
+    },
+    "journey_intro": {
+      "file": "app.js",
+      "find": "<p class=\"lead muted\" style=\"margin-top:24px;max-width:62ch;\">A phased structure, paced to the client and anchored to measurable change. This is the shape of the work, so you know what you're signing up for.</p>",
+      "replace": "<p class=\"lead muted\" style=\"margin-top:24px;max-width:62ch;\">A phased structure, paced to the client and anchored to measurable change. This is the shape of the work, so you know what you're signing up for.</p>"
+    },
+    "journey_phases": {
+      "file": "app.js",
+      "find": "${[\n          ['Phase 01','30','Days · 1–30','Foundation','Assessment, baseline measures, and stabilization of the most disruptive symptom. We build the working alliance and identify what we are tracking.'],\n          ['Phase 02','30','Days · 31–60','Excavation','Pattern identification and values clarification. We name what has been running the show and find out what you actually want instead.'],\n          ['Phase 03','30','Days · 61–90','Reconstruction','Behavioral experiments and skills practice. The pace picks up; this is where the change becomes visible to the people around you.'],\n          ['Phase 04','30','Days · 91–120','Integration','Relapse prevention, autonomy, and decisions about what comes next. You leave with the structure you needed in the first place.']\n        ].map(p=>`",
+      "replace": "${[\n          [\"Phase 01\",\"4\",\"Weeks · 1–4\",\"Foundation\",\"Assessment, history, and getting the most disruptive symptom under enough control to do the work. We build the working alliance, agree on what we are tracking, and establish a baseline so progress is something we can both see.\"],\n          [\"Phase 02\",\"4\",\"Weeks · 5–8\",\"Core work\",\"The main work of change: identifying the patterns that have been running the show, tracing where they came from, and practicing different responses. The pace is set by you, and we revisit the measures as we go.\"],\n          [\"Phase 03\",\"4\",\"Weeks · 9–12\",\"Consolidation\",\"Rehearsal under real conditions, relapse prevention, and a plan for autonomy. We re-measure, name what has shifted, and make sure you leave with the structure you came in needing — steadier than you started.\"]\n        ].map(p=>`"
+    },
+    "journey_reciprocity": {
+      "file": "app.js",
+      "find": "<p class=\"lead muted\">You bring honesty, the willingness to practice between sessions, and the assumption that change is possible. I bring evidence-based methods, structured tracking, and the steadiness that comes with real clinical experience.</p>\n          <p style=\"margin-top:20px;\">Most clients see meaningful change earlier than they expect. The change that holds — the kind that survives a hard week — is the work of the later phases.</p>",
+      "replace": "<p class=\"lead muted\">You bring honesty, the willingness to practice between sessions, and the assumption that change is possible. I bring evidence-based methods, structured tracking, and the steadiness that comes with real clinical experience.</p>\n          <p style=\"margin-top:20px;\">Most clients see meaningful change earlier than they expect. The change that holds — the kind that survives a hard week — is the work of the later phases.</p>"
+    },
+    "fees_headline": {
+      "file": "app.js",
+      "find": "<h1 class=\"display\" style=\"margin-top:14px;font-size:clamp(40px,5.4vw,72px);max-width:16ch;\">One fee. No surprises.</h1>",
+      "replace": "<h1 class=\"display\" style=\"margin-top:14px;font-size:clamp(40px,5.4vw,72px);max-width:16ch;\">One fee. No surprises.</h1>"
+    },
+    "fees_bullets": {
+      "file": "app.js",
+      "find": "<li><span>{{payment_model}} — billing handled per the practice's policy</span></li>\n            <li><span>{{superbill_policy}}</span></li>\n            <li><span>Card on file, charged at session</span></li>\n            <li><span>{{cadence}} cadence preferred</span></li>\n            <li><span>{{cancellation_policy}}</span></li>",
+      "replace": "<li><span>{{payment_model}} — billing handled per the practice's policy</span></li>\n            <li><span>{{superbill_policy}}</span></li>\n            <li><span>Card on file, charged at session</span></li>\n            <li><span>{{cadence}} cadence preferred</span></li>\n            <li><span>{{cancellation_policy}}</span></li>"
+    },
+    "fees_why": {
+      "file": "app.js",
+      "find": "<p style=\"margin-top:18px;\">A short, honest explanation of why this practice bills the way it does — what it protects about the clinical work, and why a free consult is the best way to find out if it's the right fit for you.</p>",
+      "replace": "<p style=\"margin-top:18px;\">Riverbend Couples Therapy is in-network to keep good therapy within reach of the people who need it. Billing runs through your plan so the cost is predictable, and a free consult is the best way to find out whether we are a fit before you commit.</p>"
+    },
+    "fees_faq": {
+      "file": "app.js",
+      "find": "${[\n          ['What does your billing model mean for my wallet?',\n           'Replace with a plain-language explanation of {{payment_model}} and what the client can expect to pay or be reimbursed.'],\n          ['Will you bill my insurance for me?', 'Replace with the practice\\'s actual answer based on {{payment_model}}.'],\n          ['Do you offer a sliding scale?',\n           'Replace with {{sliding_scale_policy}}.'],\n          ['How long do clients usually stay in therapy?',\n           'Replace with a short, honest answer that references {{program_name}} as one structured path.'],\n          ['Are you a good fit for me?',\n           'Replace with who is and isn\\'t a good fit — name {{service_areas}} eligibility and any conditions referred to specialists.']\n        ].map(f=>`",
+      "replace": "${[\n          [\"What does your billing model mean for my wallet?\",\"Sessions are $160 for a 55-minute session, paid at the time of service. Riverbend Couples Therapy is in-network with your plan, so you are responsible for your copay or coinsurance and any unmet deductible.\"],\n          [\"Will you bill my insurance for me?\",\"Yes — Riverbend Couples Therapy is in-network and bills your insurer directly; you pay only your plan's share.\"],\n          [\"Do you offer a sliding scale?\",\"A limited number of reduced-fee slots are reserved for couples facing financial strain and fill quickly.\"],\n          [\"How long do clients usually stay in therapy?\",\"It varies with your goals and history. The Reconnect Series is one structured path of about 8 to 12 weeks; some people want a focused course of work and others stay longer. We set the scope together and revisit it as we go.\"],\n          [\"Are you a good fit for me?\",\"Likely yes if you are an adult located in Ohio and ready for structured, evidence-based work. If your needs call for a higher level of care or a specialty outside this practice, I will say so and help you find the right referral.\"]\n        ].map(f=>`"
+    },
+    "writing_intro": {
+      "file": "app.js",
+      "find": "<p class=\"lead muted\" style=\"margin-top:24px;max-width:62ch;\">Essays on clinical work, frameworks, and the unglamorous mechanics of change — written for the client who wants to understand what's actually happening in the room.</p>",
+      "replace": "<p class=\"lead muted\" style=\"margin-top:24px;max-width:62ch;\">Essays on clinical work, frameworks, and the unglamorous mechanics of change — written for the client who wants to understand what's actually happening in the room.</p>"
+    },
+    "writing_tags": {
+      "file": "app.js",
+      "find": "${['All','Tag two','Tag three','Tag four','Tag five','Tag six'].map((t,i)=>`<span class=\"chip\" ${i===0?'style=\"border-color:var(--ink);\"':''}><span class=\"dot\"></span>${t}</span>`).join('')}",
+      "replace": "${[\"All\",\"Couples\",\"Communication\",\"Intimacy\",\"Method\",\"Fees\"].map((t,i)=>`<span class=\"chip\" ${i===0?'style=\"border-color:var(--ink);\"':''}><span class=\"dot\"></span>${t}</span>`).join('')}"
+    },
+    "blog_posts": {
+      "file": "app.js",
+      "find": "const posts = [\n  {\n    slug:'post-one',\n    title:'First essay title goes here',\n    description:'A one-to-two sentence summary of the first essay, in the clinician\\'s voice.',\n    date:'Mon 01, 2026', readingTime:'6 min read', tag:'Topic'\n  },\n  {\n    slug:'post-two',\n    title:'Second essay title goes here',\n    description:'A one-to-two sentence summary of the second essay, in the clinician\\'s voice.',\n    date:'Mon 02, 2026', readingTime:'8 min read', tag:'Topic'\n  },\n  {\n    slug:'post-three',\n    title:'Third essay title goes here',\n    description:'A one-to-two sentence summary of the third essay, in the clinician\\'s voice.',\n    date:'Mon 03, 2026', readingTime:'5 min read', tag:'Topic'\n  }\n];",
+      "replace": "const posts = [\n  {\n    slug:\"what-helps-with-couples\",\n    title:\"What actually helps with couples\",\n    description:\"An honest look at how couples tends to show up, and what the work of changing it really involves.\",\n    date:\"Feb 18, 2026\", readingTime:\"6 min read\", tag:\"Couples\"\n  },\n  {\n    slug:\"how-the-work-works\",\n    title:\"How the work works\",\n    description:\"The unglamorous mechanics of change — what happens between the insight and the new habit, and why it takes practice.\",\n    date:\"Jan 21, 2026\", readingTime:\"7 min read\", tag:\"Method\"\n  },\n  {\n    slug:\"paying-for-therapy-plainly\",\n    title:\"Paying for therapy, explained plainly\",\n    description:\"How this practice bills, what a superbill is, and how to think about the cost of doing the work well.\",\n    date:\"Jan 07, 2026\", readingTime:\"5 min read\", tag:\"Fees\"\n  }\n];"
+    },
+    "contact_intro": {
+      "file": "app.js",
+      "find": "<p class=\"lead muted\" style=\"margin-top:24px;max-width:62ch;\">Send a short message and {{owner_first_name}} will reply {{response_time}} to schedule a free {{consult_length}} consult — for both of us to see if we're a fit.</p>",
+      "replace": "<p class=\"lead muted\" style=\"margin-top:24px;max-width:62ch;\">Send a short message and {{owner_first_name}} will reply {{response_time}} to schedule a free {{consult_length}} consult — for both of us to see if we're a fit.</p>"
+    },
+    "state_options": {
+      "file": "app.js",
+      "find": "<option>Service area one</option>\n          <option>Service area two</option>\n          <option>Other</option>",
+      "replace": "<option>Ohio</option>\n          <option>Other</option>"
+    }
+  }
+}

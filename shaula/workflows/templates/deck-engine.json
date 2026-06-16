@@ -1,0 +1,56 @@
+{
+  "name": "deck-engine",
+  "description": "AI-drafted presentation decks and handouts for a therapy practice: psychoeducation slides, workshop decks, group-therapy handouts, supervision packets. Replaces Gamma. No PHI — all content is educational or administrative, never client-identifiable. Human gate before delivery — the agent produces a paste-ready slide-by-slide draft; a person builds the deck file and delivers it.",
+  "variables": ["purpose", "project"],
+  "allow_phi": false,
+  "default_workspace_kind": "scratch",
+  "steps": [
+    {
+      "ref": "brief",
+      "title": "Deck brief: {purpose} for {project}",
+      "assignee": "blog",
+      "priority": "medium",
+      "tags": ["deck", "content"],
+      "description": "Write a slide-deck brief for the {purpose} presentation at {project}. Name the audience (e.g., group therapy participants, supervision cohort, referral partners), the learning objective or message the deck must land, the key topics to cover, and the approximate length in slides. List only claims that are real and sourced — no invented statistics. Flag any clinical claim that must be verified before the deck is handed to a group. End with any disclaimers or regulatory language the clinician must include (e.g., 'not a substitute for individual treatment')."
+    },
+    {
+      "ref": "outline",
+      "title": "Slide outline: {purpose}",
+      "assignee": "marketer",
+      "priority": "medium",
+      "dependencies": ["brief"],
+      "tags": ["deck"],
+      "description": "Turn the brief into a numbered slide outline for the {purpose} deck. For each slide: title + two to four bullet points. Keep bullets factual and plain. No efficacy promise, no outcome statistic. Where the brief flags a claim for verification, mark the slide [CLINICIAN REVIEW]. End the outline with a slide for Q&A or discussion as appropriate."
+    },
+    {
+      "ref": "deck",
+      "title": "Draft deck file: {purpose} for {project}",
+      "assignee": "marketer",
+      "priority": "medium",
+      "dependencies": ["outline"],
+      "tags": ["deck", "content"],
+      "description": "Write the complete slide-by-slide deck draft from the approved outline, as paste-ready text the clinician can drop into Google Slides or PowerPoint. Title slide: {purpose} — {project}. For each slide: 'Slide N — Title', the final on-slide text (one idea per slide), then 'Speaker notes:' with what the presenter says. Keep the [CLINICIAN REVIEW] markers visible on their slides. Do not claim to have produced a file — the deliverable is the draft text itself."
+    },
+    {
+      "ref": "review",
+      "title": "Honesty review: {purpose} deck",
+      "assignee": "reviewer",
+      "priority": "high",
+      "dependencies": ["deck"],
+      "requires_review": true,
+      "tags": ["quality"],
+      "description": "Review every slide in the {purpose} deck against the Shaula honesty rules. Flag any claim that is not in the approved brief or that requires a citation not present. Flag any outcome promise or comparison to other providers. Confirm every [CLINICIAN REVIEW] marker is preserved and visible. Hold delivery until the deck is clean or the clinician has resolved every flagged slide."
+    },
+    {
+      "ref": "deliver",
+      "title": "Human gate — clinician approves and delivers: {purpose}",
+      "assignee": "marketer",
+      "priority": "high",
+      "dependencies": ["review"],
+      "triage": true,
+      "requires_review": true,
+      "tags": ["deck", "human-gate"],
+      "description": "HUMAN GATE: the clinician copies the approved slide draft into their slide tool (Google Slides or PowerPoint), resolves every [CLINICIAN REVIEW] slide with their own words, and then delivers the deck to its audience or posts it on the practice site. The agent does not build, send, or post the deck. Record the deck title, date produced, and where it was used."
+    }
+  ]
+}

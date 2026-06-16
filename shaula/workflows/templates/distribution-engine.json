@@ -1,0 +1,38 @@
+{
+  "name": "distribution-engine",
+  "description": "Earned backlinks the white-hat way (OpenGrowth SPEC section 6): from ONE already-published article, draft platform-native syndication (Quora/Reddit answer, Medium/Substack repost with rel=canonical, LinkedIn, HARO), honesty-review it, then hold in a human-approval column — a person posts each piece in context. No link exchange, no auto-posting, no PHI.",
+  "variables": ["article_url", "topic", "project"],
+  "allow_phi": false,
+  "default_workspace_kind": "scratch",
+  "steps": [
+    {
+      "ref": "syndicate",
+      "title": "Draft earned-link syndication: {topic}",
+      "assignee": "distributor",
+      "priority": "medium",
+      "tags": ["distribution", "backlinks"],
+      "description": "From the already-published {project} article at {article_url} on \"{topic}\", draft platform-native copies that each earn their place on their own merit: a genuinely useful Quora or Reddit answer that cites the article, a Medium or Substack repost carrying a rel=canonical tag back to {article_url}, a LinkedIn article, and a HARO/journalist pitch. Make each one contextual and distinct — never one blurb mass-pasted. Cite only what the article actually says. This is a DRAFT package for a human to post; you never post it yourself."
+    },
+    {
+      "ref": "review",
+      "title": "Honesty + white-hat review: {topic}",
+      "assignee": "reviewer",
+      "priority": "high",
+      "dependencies": ["syndicate"],
+      "requires_review": true,
+      "tags": ["quality"],
+      "description": "Review every syndication draft against the Shaula honesty rules AND the white-hat bar: each must add real value in its own context, carry a rel=canonical tag wherever it republishes the article, and contain no fabricated claim. Flag anything that reads as a mass-paste or a link-exchange pattern. Hold the package until it is clean."
+    },
+    {
+      "ref": "approve",
+      "title": "Human gate — a person posts the earned links: {topic}",
+      "assignee": "distributor",
+      "priority": "high",
+      "dependencies": ["review"],
+      "triage": true,
+      "requires_review": true,
+      "tags": ["distribution", "human-gate"],
+      "description": "HUMAN GATE: a person reviews the clean syndication package and posts each piece themselves, in context, on the platform. The agent never auto-posts — that is the line between an earned link and a spam pattern. After a human posts, record where the article was placed so the practice can see its real, earned backlinks."
+    }
+  ]
+}

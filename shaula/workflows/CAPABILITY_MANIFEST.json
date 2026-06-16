@@ -1,0 +1,193 @@
+{
+    "version": "1.0.0",
+    "capabilities": [
+        {
+            "id": "website-launch",
+            "label": "Practice Website",
+            "category": "website",
+            "template": "templates/website-launch.json",
+            "tier": "free",
+            "cap": "Honesty review gates publish. The OFFICE performs the deterministic build + publish after the clinician's okay \u2014 a worker never deploys.",
+            "human_gate": true,
+            "replaces": [
+                "Squarespace",
+                "Brighter Vision"
+            ],
+            "staff": [
+                "website",
+                "marketer",
+                "reviewer"
+            ],
+            "description": "Build, fact-check, and publish one honest private-practice website on a hosted address the practice can share the day it's approved. The $-anchor deliverable."
+        },
+        {
+            "id": "growth-engine",
+            "label": "Growth Engine",
+            "category": "content",
+            "template": "templates/growth-engine.json",
+            "tier": "free",
+            "cap": null,
+            "human_gate": false,
+            "replaces": [
+                "Semrush content briefs"
+            ],
+            "staff": [
+                "strategist",
+                "blog",
+                "website",
+                "marketer",
+                "reviewer",
+                "analytics"
+            ],
+            "description": "Data-driven content loop: pick topic from real demand signal, draft, GEO-optimize, honesty-review. No auto-publish."
+        },
+        {
+            "id": "weekly-blog",
+            "label": "Weekly Blog",
+            "category": "content",
+            "template": "templates/weekly-blog.json",
+            "tier": "free",
+            "cap": null,
+            "human_gate": false,
+            "replaces": [
+                "Jasper blog",
+                "Copy.ai blog"
+            ],
+            "staff": [
+                "blog",
+                "website",
+                "marketer",
+                "reviewer"
+            ],
+            "description": "One honest cited post per week plus three social teasers. Stops at honesty review."
+        },
+        {
+            "id": "distribution-engine",
+            "label": "Backlink Engine",
+            "category": "content",
+            "template": "templates/distribution-engine.json",
+            "tier": "free",
+            "cap": null,
+            "human_gate": true,
+            "replaces": [
+                "manual link outreach"
+            ],
+            "staff": [
+                "distributor",
+                "reviewer"
+            ],
+            "description": "White-hat earned backlinks: Quora, Reddit, Medium/Substack (rel=canonical), LinkedIn, HARO. Human posts every piece \u2014 agent never auto-posts."
+        },
+        {
+            "id": "copy-engine",
+            "label": "Page Copy",
+            "category": "copy",
+            "template": "templates/copy-engine.json",
+            "tier": "free",
+            "cap": null,
+            "human_gate": true,
+            "replaces": [
+                "Jasper",
+                "Copy.ai"
+            ],
+            "staff": [
+                "blog",
+                "marketer",
+                "reviewer"
+            ],
+            "description": "Landing, about, services, and bio page copy. Clinician reviews and publishes \u2014 agent never touches the site."
+        },
+        {
+            "id": "deck-engine",
+            "label": "Decks & Handouts",
+            "category": "documents",
+            "template": "templates/deck-engine.json",
+            "tier": "free",
+            "cap": null,
+            "human_gate": true,
+            "replaces": [
+                "Gamma"
+            ],
+            "staff": [
+                "blog",
+                "marketer",
+                "reviewer"
+            ],
+            "description": "Psychoeducation slides, workshop decks, group handouts, supervision packets. Outputs a slide-by-slide draft with speaker notes, ready to paste into Google Slides or PowerPoint. Clinician builds the file and delivers."
+        },
+        {
+            "id": "proposal-engine",
+            "label": "Proposals & Letters",
+            "category": "documents",
+            "template": "templates/proposal-engine.json",
+            "tier": "free",
+            "cap": null,
+            "human_gate": true,
+            "replaces": [
+                "PandaDoc"
+            ],
+            "staff": [
+                "blog",
+                "marketer",
+                "reviewer"
+            ],
+            "description": "Referral-partner proposals, group contracts, supervision agreements, speaking offers. Outputs a ready-to-send letter draft to paste into Google Docs or Word. Clinician signs and sends."
+        },
+        {
+            "id": "ad-creative-engine",
+            "label": "Ad Creative",
+            "category": "ads",
+            "template": "templates/ad-creative-engine.json",
+            "tier": "free",
+            "cap": null,
+            "human_gate": true,
+            "replaces": [
+                "AdCreative.ai"
+            ],
+            "staff": [
+                "blog",
+                "marketer",
+                "reviewer"
+            ],
+            "description": "Three ad copy variants plus image briefs for Google, Meta, and directory placements. Clinician places the ad \u2014 agent never touches ad platforms."
+        },
+        {
+            "id": "newsletter-engine",
+            "label": "Newsletter",
+            "category": "email",
+            "template": "templates/newsletter-engine.json",
+            "tier": "free",
+            "cap": "Delivery is the clinician's own email tool. Free tiers on beehiiv and MailerLite cap subscriber lists. Clinician manages their own plan and list size.",
+            "human_gate": true,
+            "replaces": [
+                "beehiiv",
+                "MailerLite"
+            ],
+            "staff": [
+                "blog",
+                "marketer",
+                "reviewer"
+            ],
+            "description": "Practitioner updates, psychoeducation digests, workshop announcements. Outputs a formatted draft. Clinician sends."
+        },
+        {
+            "id": "research-engine",
+            "label": "Research Desk",
+            "category": "documents",
+            "template": "templates/research-engine.json",
+            "tier": "free",
+            "cap": "Synthesis from the model's own general knowledge — no live database or web access. Every named source must be independently verified by the clinician before relying on it.",
+            "human_gate": true,
+            "replaces": [
+                "Elicit",
+                "manual literature searches"
+            ],
+            "staff": [
+                "strategist",
+                "blog",
+                "reviewer"
+            ],
+            "description": "Ask one clinical-topic or practice question; get an honest, verify-first research brief — scoped sub-questions, confidence-labeled findings, practical considerations, and a source checklist. Informational background, never clinical advice."
+        }
+    ]
+}

@@ -1,0 +1,153 @@
+{
+  "_comment": "Neutral template placeholders (the 37 AI-GENERATE block finds), lifted verbatim from the proven golden fixture. These are TEMPLATE CONSTANTS — identical for every practice. generate.py pairs each find with a deterministic resolver (or keeps it verbatim) to emit a per-practice generated.json. Do not edit by hand; re-derive from a proven fill if the template changes.",
+  "blocks": {
+    "meta_description": {
+      "file": "index.html",
+      "find": "<meta name=\"description\" content=\"Private psychotherapy with {{owner_name}}, {{credential}}. Specializing in {{specialties}}. {{location}} office and telehealth across {{service_areas}}.\" />"
+    },
+    "hero_headline": {
+      "file": "app.js",
+      "find": "<h1 id=\"h1\">A different kind of <span class=\"accent\">therapeutic work.</span></h1>"
+    },
+    "hero_sub": {
+      "file": "app.js",
+      "find": "<p class=\"hero-sub\">{{practice_model}} private psychotherapy with {{owner_name}}, {{credential}}. Evidence-based work for adults at a turning point.</p>"
+    },
+    "method_intro_cards": {
+      "file": "app.js",
+      "find": "${[\n          ['1','Step one','Replace with the first move of {{method_name}}.'],\n          ['2','Step two','Replace with the second move of {{method_name}}.'],\n          ['3','Step three','Replace with the third move of {{method_name}}.'],\n          ['4','Step four','Replace with the fourth move of {{method_name}}.'],\n          ['5','Step five','Replace with the fifth move of {{method_name}}.'],\n          ['6','Step six','Replace with the sixth move of {{method_name}}.']\n        ].map((c,i)=>`"
+    },
+    "method_intro_heading": {
+      "file": "app.js",
+      "find": "<h2 class=\"display\">A simple framework for the hard moments.</h2>"
+    },
+    "method_intro_lede": {
+      "file": "app.js",
+      "find": "<p class=\"lede\">An evidence-informed framework {{owner_name}} uses with clients for the moment most therapy doesn't reach.</p>"
+    },
+    "who_heading": {
+      "file": "app.js",
+      "find": "<h2 class=\"display\" style=\"margin-top:14px;\">People at a turning point who are ready to <em>move</em>.</h2>"
+    },
+    "who_body": {
+      "file": "app.js",
+      "find": "<p class=\"lead muted\">Most clients arrive having already tried hard. They want a clinician who meets that with structure, evidence, and a steady hand.</p>"
+    },
+    "populations_chips": {
+      "file": "app.js",
+      "find": "${['Specialty one','Specialty two','Specialty three','Specialty four','Specialty five','Specialty six'].map(p=>`<span class=\"chip\"><span class=\"dot\"></span>${p}</span>`).join('')}"
+    },
+    "pull_quote": {
+      "file": "app.js",
+      "find": "<blockquote>\"The work isn't about becoming someone new. It's about getting the obstacles out of the way of who you already are.\"</blockquote>"
+    },
+    "about_headline": {
+      "file": "app.js",
+      "find": "<h1 class=\"display\" style=\"margin-top:14px;font-size:clamp(40px,5.4vw,68px);\">{{owner_name}} is a {{credential_full}} who does structured, evidence-based work with people at a turning point.</h1>"
+    },
+    "about_body": {
+      "file": "app.js",
+      "find": "<p class=\"lead\">{{owner_name}}, {{credential}}, has spent years in clinical settings where the work mattered too much to be vague.</p>\n          <p style=\"margin-top:20px;\">{{owner_name}} founded {{business_name}} and now sees adults privately for {{specialties}}. Licensed to serve {{service_areas}}, with telehealth and an in-person office in {{location}}.</p>\n          <p style=\"margin-top:20px;\">The approach is evidence-based and outcomes-tracked — {{modalities}} — but the soul of it is simpler: people who do the work deserve a clinician who will too.</p>"
+    },
+    "about_note": {
+      "file": "app.js",
+      "find": "<p>\"I take this work seriously, and I expect the people I work with to do the same. If you're ready for that, I'm a good clinician to do it with.\"</p>"
+    },
+    "career_heading": {
+      "file": "app.js",
+      "find": "<h2 class=\"display\">A career arc that built this practice.</h2>"
+    },
+    "career_lede": {
+      "file": "app.js",
+      "find": "<p class=\"lede\" style=\"margin-top:14px;color:var(--ink-2);max-width:62ch;\">Each chapter taught a different piece of what this practice now is.</p>"
+    },
+    "career_timeline": {
+      "file": "app.js",
+      "find": "${[\n          ['Year – Year','Organization','Role','One-sentence description of the work and a concrete accomplishment.'],\n          ['Year – Year','Organization','Role','One-sentence description of the work and a concrete accomplishment.'],\n          ['Year – Year','Organization','Role','One-sentence description of the work and a concrete accomplishment.'],\n          ['Founded – present','{{business_name}}','Founder · Private Practice','Private practice serving {{specialties}}. Licensed for {{service_areas}}.']\n        ].map(t=>`"
+    },
+    "approach_headline": {
+      "file": "app.js",
+      "find": "<h1 class=\"display\" style=\"margin-top:14px;font-size:clamp(40px,5.4vw,72px);max-width:18ch;\">Evidence-based, outcomes-tracked, and quietly demanding.</h1>"
+    },
+    "approach_intro": {
+      "file": "app.js",
+      "find": "<p class=\"lead muted\" style=\"margin-top:24px;\">Every modality below is supported by peer-reviewed research and used in combination — not as a brand.</p>"
+    },
+    "modalities": {
+      "file": "app.js",
+      "find": "${[\n          ['M1','Modality One','One to two plain-language sentences on what this modality does and when it helps.','Author — Source'],\n          ['M2','Modality Two','One to two plain-language sentences on what this modality does and when it helps.','Author — Source'],\n          ['M3','Modality Three','One to two plain-language sentences on what this modality does and when it helps.','Author — Source'],\n          ['M4','Modality Four','One to two plain-language sentences on what this modality does and when it helps.','Author — Source']\n        ].map(m=>`"
+    },
+    "session_shape": {
+      "file": "app.js",
+      "find": "<p class=\"lead muted\">Sessions are {{session_length}}. The first few are assessment-heavy — history, goals, and a baseline. From there, sessions are structured but not rigid: a check-in, the agreed clinical work, a between-session practice, and a brief close.</p>\n          <p style=\"margin-top:18px;\">Trauma-informed throughout. Pace is set by the client's nervous system, not the calendar.</p>"
+    },
+    "method_headline": {
+      "file": "app.js",
+      "find": "<h1 class=\"display\" style=\"margin-top:14px;font-size:clamp(40px,5.4vw,72px);max-width:16ch;\">A framework for the hard moments.</h1>"
+    },
+    "method_intro": {
+      "file": "app.js",
+      "find": "<p class=\"lead muted\" style=\"margin-top:24px;max-width:62ch;\">The framework {{owner_name}} uses with clients to interrupt automatic patterns and choose a response that fits who they actually are. Each step pairs the science with one practice you can run this week.</p>"
+    },
+    "method_steps": {
+      "file": "app.js",
+      "find": "${[\n        ['1','Step one','01','One-line subtitle for this step',\n          'Replace with a 2-4 sentence, plain-language explanation of what happens in this step and the science behind it.',\n          'Replace with one concrete practice the reader can try this week.'],\n        ['2','Step two','02','One-line subtitle for this step',\n          'Replace with a 2-4 sentence, plain-language explanation of what happens in this step and the science behind it.',\n          'Replace with one concrete practice the reader can try this week.'],\n        ['3','Step three','03','One-line subtitle for this step',\n          'Replace with a 2-4 sentence, plain-language explanation of what happens in this step and the science behind it.',\n          'Replace with one concrete practice the reader can try this week.'],\n        ['4','Step four','04','One-line subtitle for this step',\n          'Replace with a 2-4 sentence, plain-language explanation of what happens in this step and the science behind it.',\n          'Replace with one concrete practice the reader can try this week.']\n      ].map(m=>`"
+    },
+    "method_why": {
+      "file": "app.js",
+      "find": "<p>\"The name is a reminder of the one principle that holds the whole thing together — and the part most people skip.\"</p>"
+    },
+    "journey_headline": {
+      "file": "app.js",
+      "find": "<h1 class=\"display\" style=\"margin-top:14px;font-size:clamp(40px,5.4vw,72px);max-width:18ch;\">A structured journey for people ready to do real work.</h1>"
+    },
+    "journey_intro": {
+      "file": "app.js",
+      "find": "<p class=\"lead muted\" style=\"margin-top:24px;max-width:62ch;\">A phased structure, paced to the client and anchored to measurable change. This is the shape of the work, so you know what you're signing up for.</p>"
+    },
+    "journey_phases": {
+      "file": "app.js",
+      "find": "${[\n          ['Phase 01','30','Days · 1–30','Foundation','Assessment, baseline measures, and stabilization of the most disruptive symptom. We build the working alliance and identify what we are tracking.'],\n          ['Phase 02','30','Days · 31–60','Excavation','Pattern identification and values clarification. We name what has been running the show and find out what you actually want instead.'],\n          ['Phase 03','30','Days · 61–90','Reconstruction','Behavioral experiments and skills practice. The pace picks up; this is where the change becomes visible to the people around you.'],\n          ['Phase 04','30','Days · 91–120','Integration','Relapse prevention, autonomy, and decisions about what comes next. You leave with the structure you needed in the first place.']\n        ].map(p=>`"
+    },
+    "journey_reciprocity": {
+      "file": "app.js",
+      "find": "<p class=\"lead muted\">You bring honesty, the willingness to practice between sessions, and the assumption that change is possible. I bring evidence-based methods, structured tracking, and the steadiness that comes with real clinical experience.</p>\n          <p style=\"margin-top:20px;\">Most clients see meaningful change earlier than they expect. The change that holds — the kind that survives a hard week — is the work of the later phases.</p>"
+    },
+    "fees_headline": {
+      "file": "app.js",
+      "find": "<h1 class=\"display\" style=\"margin-top:14px;font-size:clamp(40px,5.4vw,72px);max-width:16ch;\">One fee. No surprises.</h1>"
+    },
+    "fees_bullets": {
+      "file": "app.js",
+      "find": "<li><span>{{payment_model}} — billing handled per the practice's policy</span></li>\n            <li><span>{{superbill_policy}}</span></li>\n            <li><span>Card on file, charged at session</span></li>\n            <li><span>{{cadence}} cadence preferred</span></li>\n            <li><span>{{cancellation_policy}}</span></li>"
+    },
+    "fees_why": {
+      "file": "app.js",
+      "find": "<p style=\"margin-top:18px;\">A short, honest explanation of why this practice bills the way it does — what it protects about the clinical work, and why a free consult is the best way to find out if it's the right fit for you.</p>"
+    },
+    "fees_faq": {
+      "file": "app.js",
+      "find": "${[\n          ['What does your billing model mean for my wallet?',\n           'Replace with a plain-language explanation of {{payment_model}} and what the client can expect to pay or be reimbursed.'],\n          ['Will you bill my insurance for me?', 'Replace with the practice\\'s actual answer based on {{payment_model}}.'],\n          ['Do you offer a sliding scale?',\n           'Replace with {{sliding_scale_policy}}.'],\n          ['How long do clients usually stay in therapy?',\n           'Replace with a short, honest answer that references {{program_name}} as one structured path.'],\n          ['Are you a good fit for me?',\n           'Replace with who is and isn\\'t a good fit — name {{service_areas}} eligibility and any conditions referred to specialists.']\n        ].map(f=>`"
+    },
+    "writing_intro": {
+      "file": "app.js",
+      "find": "<p class=\"lead muted\" style=\"margin-top:24px;max-width:62ch;\">Essays on clinical work, frameworks, and the unglamorous mechanics of change — written for the client who wants to understand what's actually happening in the room.</p>"
+    },
+    "writing_tags": {
+      "file": "app.js",
+      "find": "${['All','Tag two','Tag three','Tag four','Tag five','Tag six'].map((t,i)=>`<span class=\"chip\" ${i===0?'style=\"border-color:var(--ink);\"':''}><span class=\"dot\"></span>${t}</span>`).join('')}"
+    },
+    "blog_posts": {
+      "file": "app.js",
+      "find": "const posts = [\n  {\n    slug:'post-one',\n    title:'First essay title goes here',\n    description:'A one-to-two sentence summary of the first essay, in the clinician\\'s voice.',\n    date:'Mon 01, 2026', readingTime:'6 min read', tag:'Topic'\n  },\n  {\n    slug:'post-two',\n    title:'Second essay title goes here',\n    description:'A one-to-two sentence summary of the second essay, in the clinician\\'s voice.',\n    date:'Mon 02, 2026', readingTime:'8 min read', tag:'Topic'\n  },\n  {\n    slug:'post-three',\n    title:'Third essay title goes here',\n    description:'A one-to-two sentence summary of the third essay, in the clinician\\'s voice.',\n    date:'Mon 03, 2026', readingTime:'5 min read', tag:'Topic'\n  }\n];"
+    },
+    "contact_intro": {
+      "file": "app.js",
+      "find": "<p class=\"lead muted\" style=\"margin-top:24px;max-width:62ch;\">Send a short message and {{owner_first_name}} will reply {{response_time}} to schedule a free {{consult_length}} consult — for both of us to see if we're a fit.</p>"
+    },
+    "state_options": {
+      "file": "app.js",
+      "find": "<option>Service area one</option>\n          <option>Service area two</option>\n          <option>Other</option>"
+    }
+  }
+}

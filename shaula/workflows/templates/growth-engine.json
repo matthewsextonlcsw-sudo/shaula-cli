@@ -1,0 +1,72 @@
+{
+  "name": "growth-engine",
+  "description": "Data-driven content loop (OpenGrowth, honesty-gated): pick a topic from REAL demand signal, draft + stage + GEO + teasers, honesty-review, then log results. No PHI. Generalizes weekly-blog (HARNESS workflow L) with a topic-selection front (strategist) and a measurement back (analytics). No auto-publish — it stops at the honesty review, like weekly-blog.",
+  "variables": ["seed", "project"],
+  "allow_phi": false,
+  "default_workspace_kind": "scratch",
+  "steps": [
+    {
+      "ref": "keywords",
+      "title": "Pick topic + angle: {seed}",
+      "assignee": "strategist",
+      "priority": "medium",
+      "tags": ["strategy", "geo"],
+      "description": "From the seed \"{seed}\" and the {project} practice's REAL signal (its Search Console queries if attached, the clinician's seed list, and the practice's real services and FAQs), choose ONE topic, ONE angle, and the search intent it answers. Give a one-line reason grounded only in data you actually saw. Invent no search volume, keyword difficulty, or traffic number — if you have no real figure, say so and omit it. Output the chosen topic, angle, target query, and reason."
+    },
+    {
+      "ref": "brief",
+      "title": "Blog brief: {seed}",
+      "assignee": "blog",
+      "priority": "medium",
+      "dependencies": ["keywords"],
+      "tags": ["content", "geo"],
+      "description": "Write an honest, cited brief for the topic and angle the strategist chose for the {project} practice site. Use real sources only and omit any claim you cannot cite. State the angle, the outline, and the citations the writer must keep. End any long piece with a clinical/legal disclaimer."
+    },
+    {
+      "ref": "draft",
+      "title": "Stage the post: {seed}",
+      "assignee": "website",
+      "priority": "medium",
+      "dependencies": ["brief"],
+      "tags": ["content"],
+      "description": "Turn the approved brief into a staged post in the {project} site (a draft route, not published). Keep the practice's voice. Make no efficacy or outcome claim; describe the work plainly."
+    },
+    {
+      "ref": "geo",
+      "title": "GEO + schema pass: {seed}",
+      "assignee": "marketer",
+      "priority": "medium",
+      "dependencies": ["draft"],
+      "tags": ["geo", "seo"],
+      "description": "Add Generative-Engine-Optimization metadata and JSON-LD schema for the staged post. Factual metadata only — title, description, author, dates, FAQ pulled from the post itself."
+    },
+    {
+      "ref": "teasers",
+      "title": "3 social teasers: {seed}",
+      "assignee": "marketer",
+      "priority": "medium",
+      "dependencies": ["draft"],
+      "tags": ["social"],
+      "description": "Write three Instagram/TikTok teasers that give a reason to read the post. Sell the read, never a clinical promise. Never make a client's condition the punchline — aim any irony at the system, warmth at the clinician and client."
+    },
+    {
+      "ref": "review",
+      "title": "Honesty review: {seed} package",
+      "assignee": "reviewer",
+      "priority": "high",
+      "dependencies": ["geo", "teasers"],
+      "requires_review": true,
+      "tags": ["quality"],
+      "description": "Review the staged post, the GEO metadata, and the teasers against the Shaula honesty rules. Flag any unsupported claim or missing citation, and confirm the strategist attached no invented search number. Hold publish until the package is clean."
+    },
+    {
+      "ref": "measure",
+      "title": "Log results: {seed}",
+      "assignee": "analytics",
+      "priority": "low",
+      "dependencies": ["review"],
+      "tags": ["analytics"],
+      "description": "Record which topic, angle, and target query this cycle shipped, from real data only. When the post has live metrics, note what actually changed and why it matters; if nothing meaningful moved or there is no data yet, reply exactly [SILENT]. Never dress an estimate as a measurement."
+    }
+  ]
+}

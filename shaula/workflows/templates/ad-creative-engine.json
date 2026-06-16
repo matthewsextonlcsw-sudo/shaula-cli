@@ -1,0 +1,56 @@
+{
+  "name": "ad-creative-engine",
+  "description": "AI-drafted ad copy + image briefs for a therapy practice: Google Ads, Meta ads, directory listings, sponsored newsletters. Replaces AdCreative.ai. No PHI. Honesty-gated: zero outcome claims, zero statistics, no fear-based or condition-shaming copy. Human gate before any ad goes live — the agent drafts; a person places and pays for the ad.",
+  "variables": ["campaign", "project"],
+  "allow_phi": false,
+  "default_workspace_kind": "scratch",
+  "steps": [
+    {
+      "ref": "brief",
+      "title": "Ad brief: {campaign} for {project}",
+      "assignee": "blog",
+      "priority": "medium",
+      "tags": ["ads", "content"],
+      "description": "Write an ad brief for the {campaign} campaign at {project}. Name the placement (Google Search, Meta feed, directory listing), the audience segment (who should see this ad and why), the single action the ad should drive (booking link, profile visit, phone call), the practice's real service and the population it serves, and the tone the clinician uses. Hard rules: no outcome promise, no condition as a punchline, no fear-based framing, no invented social proof. Describe the service honestly and let the offer stand on its own. List the specific credential or real differentiator that makes {project} the right fit for this audience."
+    },
+    {
+      "ref": "copy_variants",
+      "title": "Ad copy variants: {campaign}",
+      "assignee": "marketer",
+      "priority": "medium",
+      "dependencies": ["brief"],
+      "tags": ["ads", "copy"],
+      "description": "Write three distinct ad copy variants for the {campaign} campaign from the brief. Each variant: headline (under 30 characters for search, under 40 for social), body copy (under 90 characters for search, under 125 for social), and call to action. Variants should try three different angles from the brief — do not repeat the same hook in different words. No outcome claim, no condition as the punchline, no invented social proof, no percentage. Irony, if used, targets the system (insurance hassle, long waitlists, generic advice) — warmth goes to the clinician and the person seeking care."
+    },
+    {
+      "ref": "image_brief",
+      "title": "Image briefs: {campaign}",
+      "assignee": "marketer",
+      "priority": "medium",
+      "dependencies": ["copy_variants"],
+      "tags": ["ads", "creative"],
+      "description": "Write one image brief paired to each copy variant for the {campaign} campaign. Each brief: describe the visual concept (setting, subject, mood, color direction) in two or three sentences a designer or stock-photo searcher can act on immediately. Do not describe faces that suggest distress as a hook — warmth and normalcy beat anxiety as a visual strategy for a therapy practice. Include alt-text for accessibility. These briefs are for a human designer or a stock-photo search — the agent does not generate images."
+    },
+    {
+      "ref": "review",
+      "title": "Honesty review: {campaign} creative package",
+      "assignee": "reviewer",
+      "priority": "high",
+      "dependencies": ["image_brief"],
+      "requires_review": true,
+      "tags": ["quality"],
+      "description": "Review all three ad copy variants and their image briefs for the {campaign} campaign against the Shaula honesty rules and advertising ethics for mental health: no outcome promise, no condition-shaming, no fabricated endorsement, no fear-based hook that exaggerates distress, no superlative, no comparison to other providers. Confirm each variant could pass FTC and platform policy review. Flag any copy that a regulator or ethicist would call manipulative. Hold delivery until the package is clean."
+    },
+    {
+      "ref": "approve",
+      "title": "Human gate — clinician approves and places ads: {campaign}",
+      "assignee": "marketer",
+      "priority": "high",
+      "dependencies": ["review"],
+      "triage": true,
+      "requires_review": true,
+      "tags": ["ads", "human-gate"],
+      "description": "HUMAN GATE: the clinician reviews the clean copy variants and image briefs, selects the variant they want to run, pairs it with their own image or directs a designer, and places the ad in their own ad account. The agent does not access ad platforms or spend budget. Record which variant was selected, the platform, and the campaign start date so results can be tracked honestly."
+    }
+  ]
+}

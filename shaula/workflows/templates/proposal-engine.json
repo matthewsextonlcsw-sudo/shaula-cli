@@ -1,0 +1,47 @@
+{
+  "name": "proposal-engine",
+  "description": "AI-drafted professional proposals and partnership letters for a therapy practice: referral-partner introductions, group-contract proposals, supervision agreements, speaking engagement offers. Replaces PandaDoc template creation. No PHI — proposals target organizations or partners, never individual clients. Human gate before sending — the clinician signs and sends every proposal themselves.",
+  "variables": ["recipient", "project"],
+  "allow_phi": false,
+  "default_workspace_kind": "scratch",
+  "steps": [
+    {
+      "ref": "brief",
+      "title": "Proposal brief: {recipient} from {project}",
+      "assignee": "blog",
+      "priority": "medium",
+      "tags": ["proposal", "content"],
+      "description": "Write a proposal brief for the {project} practice to send to {recipient}. Name the type of proposal (referral partnership, group contract, supervision agreement, speaking offer), the specific ask or offer the clinician wants to make, the value to {recipient} stated honestly without inflated claims, the clinician's relevant credentials and real experience, and any terms or conditions to include. Use no invented outcome statistics. Do not frame the offer as an exclusive or a limited-time pressure tactic. List the real mutual benefits and let them stand on their own."
+    },
+    {
+      "ref": "draft",
+      "title": "Draft proposal: {recipient}",
+      "assignee": "marketer",
+      "priority": "medium",
+      "dependencies": ["brief"],
+      "tags": ["proposal", "content"],
+      "description": "Write a professional proposal letter for {recipient} from {project} based on the brief. Tone: warm and peer-level, not a sales pitch. Include: greeting, the specific offer or ask, the mutual benefit described plainly, the clinician's relevant credentials (no superlatives), next steps or call to action, and a closing. Deliver it as a complete, ready-to-paste letter the clinician can drop into Google Docs or Word — do not claim to have produced a file. Leave a [CLINICIAN SIGNATURE] placeholder at the close. Mark any claim that requires the clinician's review as [CHECK]."
+    },
+    {
+      "ref": "review",
+      "title": "Honesty review: {recipient} proposal",
+      "assignee": "reviewer",
+      "priority": "high",
+      "dependencies": ["draft"],
+      "requires_review": true,
+      "tags": ["quality"],
+      "description": "Review the proposal against the Shaula honesty rules. Confirm every claim in the letter is grounded in the brief. Flag any promise that over-states what the practice can deliver. Flag any missing [CLINICIAN SIGNATURE] or unresolved [CHECK] placeholder. The proposal must read as a sincere, accurate offer — not a pitch built on marketing language. Hold delivery until clean."
+    },
+    {
+      "ref": "send",
+      "title": "Human gate — clinician signs and sends: {recipient}",
+      "assignee": "marketer",
+      "priority": "high",
+      "dependencies": ["review"],
+      "triage": true,
+      "requires_review": true,
+      "tags": ["proposal", "human-gate"],
+      "description": "HUMAN GATE: the clinician copies the clean proposal letter into their document tool, fills the [CLINICIAN SIGNATURE] block with their own name and credential, resolves any [CHECK] items, and sends the letter to {recipient} via their own email or portal. The agent does not send correspondence. Record the recipient, date sent, and the clinician's follow-up plan."
+    }
+  ]
+}

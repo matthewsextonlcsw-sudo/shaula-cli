@@ -1,0 +1,60 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "shaula"
+description = "A downloadable, honesty-gated research & workflow agent. BYO key (Google / Anthropic / OpenAI). The honesty gate is the moat — a banned claim parks the run instead of shipping."
+readme = "README.md"
+requires-python = ">=3.9"
+license = { text = "MIT" }
+authors = [{ name = "Matthew Sexton" }]
+keywords = ["agent", "workflow", "honesty", "research", "byo-key", "cli"]
+dynamic = ["version"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Environment :: Console",
+    "Intended Audience :: Healthcare Industry",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3 :: Only",
+    "Topic :: Office/Business",
+]
+
+# Core is dependency-free on purpose: `shaula ... --stub` runs fully offline with
+# zero third-party packages, so the honesty gate is provable in CI without a key.
+dependencies = []
+
+[project.optional-dependencies]
+# httpx is the only transport dep; google-auth is only for Vertex/ADC mode.
+google = ["httpx>=0.24", "google-auth>=2.0"]
+anthropic = ["httpx>=0.24"]
+openai = ["httpx>=0.24"]
+all = ["httpx>=0.24", "google-auth>=2.0"]
+dev = ["pytest>=7.0", "httpx>=0.24", "build>=1.0"]
+
+[project.scripts]
+shaula = "shaula.cli:main"
+
+[project.urls]
+Homepage = "https://github.com/matthewsextonlcsw-sudo/shaula-cli"
+Source = "https://github.com/matthewsextonlcsw-sudo/shaula-cli"
+
+[tool.setuptools.dynamic]
+version = { attr = "shaula.__version__" }
+
+[tool.setuptools.packages.find]
+# Flat layout: the package dir is ./shaula. Picks up shaula, shaula.engine,
+# shaula.workflows; tests/ and scripts/ stay out of the wheel.
+include = ["shaula*"]
+
+[tool.setuptools.package-data]
+# The seeded engine ships its JSON profiles + the Node render check; the workflow
+# layer ships its vetted template library and docs. Without these the installed
+# wheel could import but not run a real template.
+"shaula.engine" = ["*.json", "*.mjs"]
+"shaula.workflows" = ["*.json", "*.md", "templates/*.json"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"

@@ -1,0 +1,47 @@
+{
+  "name": "copy-engine",
+  "description": "AI copywriting for practice pages (landing, about, services, bio): brief the page, draft honest copy, honesty-review it, then hand to a human to publish. Replaces Jasper/Copy.ai. No PHI. Human gate before any copy goes live — the agent never publishes itself.",
+  "variables": ["page_type", "project"],
+  "allow_phi": false,
+  "default_workspace_kind": "scratch",
+  "steps": [
+    {
+      "ref": "brief",
+      "title": "Copy brief: {page_type} for {project}",
+      "assignee": "blog",
+      "priority": "medium",
+      "tags": ["copy", "content"],
+      "description": "Write a copy brief for the {page_type} page on the {project} practice site. Name the reader (who arrives on this page and why), the single action or feeling the page should produce, the practice's real services and credentials that are relevant, and the tone the clinician uses in their own words. Use no invented statistics or outcome claims. Do not describe the clinician as a ranking or a superlative — describe them accurately. End the brief with a list of facts the copy MUST stay true to."
+    },
+    {
+      "ref": "draft",
+      "title": "Draft {page_type} copy: {project}",
+      "assignee": "marketer",
+      "priority": "medium",
+      "dependencies": ["brief"],
+      "tags": ["copy", "content"],
+      "description": "Write the {page_type} copy for {project} following the brief exactly. Plain language — no clinical jargon unless it is the clinician's own credential. No efficacy promise, no outcome claim, no percentage, no comparison to other providers. Describe the work plainly: what the clinician does, who it is for, what to expect in a session. Write as the practice's own voice, not as an advertisement. Include a placeholder for the clinician to review any claim marked [CHECK]."
+    },
+    {
+      "ref": "review",
+      "title": "Honesty review: {page_type} copy for {project}",
+      "assignee": "reviewer",
+      "priority": "high",
+      "dependencies": ["draft"],
+      "requires_review": true,
+      "tags": ["quality"],
+      "description": "Review the {page_type} copy against the Shaula honesty rules. Flag any claim that is not grounded in a verifiable fact from the brief. Flag any superlative or comparison. Flag any outcome promise or statistic not cited in the brief. The copy must read as an accurate description of the practice, not a sales pitch with invented proof. Hold delivery until every flagged item is resolved."
+    },
+    {
+      "ref": "publish",
+      "title": "Human gate — clinician reviews and publishes: {page_type}",
+      "assignee": "marketer",
+      "priority": "high",
+      "dependencies": ["review"],
+      "triage": true,
+      "requires_review": true,
+      "tags": ["copy", "human-gate"],
+      "description": "HUMAN GATE: the clinician reads the clean copy, adjusts any [CHECK] placeholder with their own words, and publishes or hands to their web editor. The agent never publishes — copy goes live only after the clinician approves it in their own voice. Record which page was updated and the date."
+    }
+  ]
+}

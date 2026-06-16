@@ -1,0 +1,54 @@
+{
+  "name": "weekly-blog",
+  "description": "Draft, optimize, and review one honest, claim-safe blog post plus its social teasers. No PHI — the marketing/GEO lane (HARNESS workflow L), the first runnable workflow. Write from your own general knowledge: no web search is available, so never fabricate statistics or cite studies you cannot verify — describe techniques plainly as general wellness guidance and make no efficacy or outcome claim. Every step is pure text: read the parent handoff, return the artifact as your kanban_complete summary. The office publishes the approved package; no worker touches the filesystem.",
+  "variables": ["topic", "project"],
+  "allow_phi": false,
+  "default_workspace_kind": "scratch",
+  "steps": [
+    {
+      "ref": "brief",
+      "title": "Blog brief: {topic}",
+      "assignee": "blog",
+      "priority": "medium",
+      "tags": ["content", "geo"],
+      "description": "Write an honest brief for a blog post on \"{topic}\" for the {project} practice site, drawing on your own general knowledge. You have no web-search tool, so do not require external citations and do not fabricate statistics or attribute claims to studies you cannot verify — instead describe each technique plainly as general wellness guidance and make no efficacy or outcome claim. State the angle and the full outline (section by section, with the key points the writer must keep). If a point genuinely needs a source the writer cannot supply from common knowledge, drop it rather than invent one. Return the COMPLETE brief (angle + outline) as your kanban_complete summary so the writer reads it directly — do not bury it in terminal output, and do NOT block: a plainly-described, claim-free brief fully satisfies this task. Pure text: do not use the terminal or create files."
+    },
+    {
+      "ref": "draft",
+      "title": "Draft the {topic} post",
+      "assignee": "blog",
+      "priority": "medium",
+      "dependencies": ["brief"],
+      "tags": ["content"],
+      "description": "Using the brief in your parent task's handoff, write the COMPLETE blog post — a headline and the full body — in the {project} practice's voice. Make no efficacy or outcome claim and include no statistic or study reference you cannot personally verify; describe the work plainly as general wellness guidance. End the post with a short, plain disclaimer that this is general wellness information, not medical or mental-health advice, and that readers should consult a licensed professional about their own situation. Return the entire post (headline + body + disclaimer) as your kanban_complete summary so the office can stage it for approval — do NOT block: a plainly-described, claim-free post fully satisfies this task. Pure text: do not use the terminal or create files — a later approval step publishes it."
+    },
+    {
+      "ref": "geo",
+      "title": "GEO + schema pass: {topic}",
+      "assignee": "marketer",
+      "priority": "medium",
+      "dependencies": ["draft"],
+      "tags": ["geo", "seo"],
+      "description": "From the finished post in your parent task's handoff, produce Generative-Engine-Optimization metadata (title, meta description, author, publish/updated dates, an FAQ pulled from the post) and the matching JSON-LD schema block. Factual only — every value must come from the post itself; invent nothing. Return the metadata and the JSON-LD as your kanban_complete summary. Pure text: do not use the terminal or create files."
+    },
+    {
+      "ref": "teasers",
+      "title": "3 social teasers: {topic}",
+      "assignee": "marketer",
+      "priority": "medium",
+      "dependencies": ["draft"],
+      "tags": ["social"],
+      "description": "From the finished post in your parent task's handoff, write three Instagram/TikTok teasers that give a real reason to read the {topic} post. Sell the read, never a clinical promise. Never make a client's condition the punchline — aim any irony at the system, warmth at the clinician and client. Return all three teasers as your kanban_complete summary. Pure text: do not use the terminal or create files."
+    },
+    {
+      "ref": "review",
+      "title": "Honesty review: {topic} package",
+      "assignee": "reviewer",
+      "priority": "high",
+      "dependencies": ["geo", "teasers"],
+      "requires_review": true,
+      "tags": ["quality"],
+      "description": "Review the drafted post, the GEO metadata, and the social teasers — all in your parent tasks' handoffs — against the Shaula honesty rules. Flag any unsupported claim, fabricated statistic, or missing citation. Pure text: do not use the terminal or create files. This package must NOT publish until a human approves it, so do NOT complete this task. Instead, hold it for the clinician by calling kanban_block with a reason that begins exactly with `review-required:` followed by your verdict (clean / needs-changes) and any flags. The office surfaces every `review-required:` task to the clinician as an okay-card; their approval is what advances it to publish."
+    }
+  ]
+}

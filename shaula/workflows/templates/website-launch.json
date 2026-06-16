@@ -1,0 +1,45 @@
+{
+  "name": "website-launch",
+  "description": "Build, fact-check, and publish one honest private-practice website, then put it on the clinician's own web address with HTTPS. No PHI — the marketing lane. Every step is PURE TEXT: the staff return the survey, the copy, and the GEO metadata as their kanban_complete summaries. The OFFICE — never a worker — performs the deterministic build (engine.pipeline.build_site), the publish to Google hosting (a Cloud Run service behind a Google-managed-cert HTTPS load balancer), and the custom-domain attach (hands the clinician one A record). No worker runs the terminal, touches the filesystem, or calls a cloud API; that happens only after the clinician approves. Write strictly from true facts the clinician supplied: never invent a credential, fee, license, or outcome, and make no efficacy claim.",
+  "variables": ["practice", "domain"],
+  "allow_phi": false,
+  "default_workspace_kind": "scratch",
+  "steps": [
+    {
+      "ref": "intake",
+      "title": "Practice intake: {practice}",
+      "assignee": "website",
+      "priority": "high",
+      "tags": ["website", "intake"],
+      "description": "Turn the clinician's true facts about {practice} into the COMPLETE site survey, using only what they supplied. Return a SINGLE JSON object as your kanban_complete summary with EXACTLY these keys (all required, plain strings): owner_name, credential, business_name, tagline, specialties, modalities, location, service_areas, payment_model_type, session_fee, session_length, phone, email, education, founded_date, license_state, license_number, license_year. Invent nothing — if a fact is genuinely missing, set that key to an empty string and add one 'MISSING: <key>' line after the JSON so the clinician can fill it. Make no efficacy or outcome claim and no marketing hype. Pure text: do not use the terminal or create files — the office builds the site from this survey after approval."
+    },
+    {
+      "ref": "copy",
+      "title": "Site copy: {practice}",
+      "assignee": "website",
+      "priority": "medium",
+      "dependencies": ["intake"],
+      "tags": ["website", "content"],
+      "description": "Using the survey in your parent task's handoff, write the honest site prose for {practice}: a hero line, a short 'about', and an 'approach' section, in the practice's plain voice. Describe the work as general clinical practice; make NO efficacy, success-rate, or outcome claim and cite no statistic you cannot personally verify. Return the prose, clearly labelled hero / about / approach, as your kanban_complete summary. Pure text: do not use the terminal or create files."
+    },
+    {
+      "ref": "geo",
+      "title": "GEO + schema: {practice}",
+      "assignee": "marketer",
+      "priority": "medium",
+      "dependencies": ["copy"],
+      "tags": ["geo", "seo"],
+      "description": "From the survey and copy in your parent tasks' handoffs, produce Generative-Engine-Optimization metadata (title, meta description, and an FAQ drawn only from the copy) plus a matching JSON-LD schema block for {domain}. Factual only — every value must come from the survey or copy; invent nothing. Return the metadata and the JSON-LD as your kanban_complete summary. Pure text: do not use the terminal or create files."
+    },
+    {
+      "ref": "review",
+      "title": "Honesty review: {practice} website",
+      "assignee": "reviewer",
+      "priority": "high",
+      "dependencies": ["copy", "geo"],
+      "requires_review": true,
+      "tags": ["quality"],
+      "description": "Review the survey, the site copy, and the GEO metadata — all in your parent tasks' handoffs — against the Shaula honesty rules. Flag any unsupported claim, fabricated statistic, invented credential/fee/license, or missing required survey field. Pure text: do not use the terminal or create files. This site must NOT publish until a human approves it, so do NOT complete this task. Hold it for the clinician by calling kanban_block with a reason that begins EXACTLY with `review-required:` followed by your verdict (clean / needs-changes) and any flags. On the clinician's okay the office runs engine.pipeline.build_site on the survey, publishes the result to Google hosting (Cloud Run + managed-cert load balancer), and attaches {domain}; the worker performs none of that."
+    }
+  ]
+}

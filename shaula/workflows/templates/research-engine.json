@@ -1,0 +1,45 @@
+{
+  "name": "research-engine",
+  "description": "Turn one clinician question into an honest, verify-first research brief. No PHI — practice questions and general clinical-topic background only, never a client's case. Write from your own general knowledge: no web search is available, so never fabricate a statistic, never invent a citation, and attribute a claim only to a named source you are certain exists — otherwise describe the idea plainly and mark it unverified. The brief is informational background for the clinician, never clinical advice and never a treatment decision. Every step is pure text: read the parent handoff, return the artifact as your kanban_complete summary. Nothing ships past the honesty review.",
+  "variables": ["topic", "project"],
+  "allow_phi": false,
+  "default_workspace_kind": "scratch",
+  "steps": [
+    {
+      "ref": "scope",
+      "title": "Scope the research: {topic}",
+      "assignee": "strategist",
+      "priority": "medium",
+      "tags": ["research", "strategy"],
+      "description": "Turn the clinician's question \"{topic}\" into a precise research scope for the {project} practice. Restate the question in one exact sentence, break it into three to five sub-questions worth answering, and say for each what kind of evidence would actually answer it. You have no web-search tool, so state plainly which sub-questions can be answered from general professional knowledge and which would need a live literature search the clinician must run themselves. Invent nothing — no figures, no named findings. Return the complete scope (restated question + sub-questions + evidence notes + limits) as your kanban_complete summary so the writer reads it directly. Pure text: do not use the terminal or create files."
+    },
+    {
+      "ref": "findings",
+      "title": "Findings: {topic}",
+      "assignee": "blog",
+      "priority": "medium",
+      "dependencies": ["scope"],
+      "tags": ["research", "content"],
+      "description": "Using the scope in your parent task's handoff, write the findings for each sub-question from your own general knowledge. Plain language, organized by sub-question. Attribute a claim only to a named source you are certain exists (author and work) — you have no web-search tool, so if you cannot name the source with confidence, describe the idea plainly and label it instead. Label every finding with exactly one confidence tag: [established], [commonly described], or [unverified]. Include no statistic or outcome figure you cannot personally verify, and make no efficacy or outcome claim. Close with a short \"what I could not verify\" list naming the sub-questions that need a real literature search. Return the complete findings as your kanban_complete summary — do NOT block: plainly-described, claim-free findings fully satisfy this task. Pure text: do not use the terminal or create files."
+    },
+    {
+      "ref": "brief",
+      "title": "Research brief: {topic}",
+      "assignee": "blog",
+      "priority": "medium",
+      "dependencies": ["findings"],
+      "tags": ["research", "documents"],
+      "description": "Assemble the findings from your parent task's handoff into one complete, clinician-ready research brief for the {project} practice. Structure: (1) a plain-language summary in three to five sentences; (2) key findings with their confidence tags kept intact; (3) practical considerations for the practice — framed as considerations to weigh, never as recommendations or treatment direction; (4) open questions still unanswered; (5) a verification checklist listing every named source so the clinician can confirm each one before relying on it. End with a plain disclaimer that this brief is informational background drawn from general knowledge without a live literature search, is not clinical advice, and is not a substitute for the clinician's own judgment or for current published literature. Return the ENTIRE brief as your kanban_complete summary so the office can stage it for approval. Pure text: do not use the terminal or create files."
+    },
+    {
+      "ref": "review",
+      "title": "Honesty review: {topic} brief",
+      "assignee": "reviewer",
+      "priority": "high",
+      "dependencies": ["brief"],
+      "requires_review": true,
+      "tags": ["quality"],
+      "description": "Review the research brief in your parent task's handoff against the Shaula honesty rules. Flag any fabricated statistic, any citation that looks invented, any finding missing its confidence tag, any claim phrased as clinical advice or a recommendation, and confirm the verification checklist and the closing disclaimer are present. Pure text: do not use the terminal or create files. This brief must NOT reach the clinician as approved until a human okays it, so do NOT complete this task. Instead, hold it for the clinician by calling kanban_block with a reason that begins exactly with `review-required:` followed by your verdict (clean / needs-changes) and any flags. The office surfaces every `review-required:` task to the clinician as an okay-card; their approval is what releases the brief."
+    }
+  ]
+}
