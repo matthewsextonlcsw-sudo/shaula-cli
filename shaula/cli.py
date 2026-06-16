@@ -215,7 +215,20 @@ def build_parser() -> argparse.ArgumentParser:
     return ap
 
 
+def _force_utf8() -> None:
+    """Windows consoles default to a non-UTF-8 code page (cp1252) that cannot encode
+    the ✓/✗/⛔ glyphs this CLI prints, raising UnicodeEncodeError. Reconfigure
+    stdout/stderr to UTF-8 — best-effort: a captured or detached stream (e.g. under
+    pytest) simply keeps its own encoding."""
+    for stream in (sys.stdout, sys.stderr):
+        try:
+            stream.reconfigure(encoding="utf-8")  # type: ignore[attr-defined]
+        except (AttributeError, ValueError, OSError):
+            pass
+
+
 def main(argv=None) -> int:
+    _force_utf8()
     settings.load_env()  # populate provider keys from ~/.shaula/.env if present
     ap = build_parser()
     args = ap.parse_args(argv)
